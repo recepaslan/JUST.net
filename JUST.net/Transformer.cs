@@ -314,8 +314,9 @@ namespace JUST
             return GetValue(selectedToken);
         }
         #endregion
-
+          
         #region date functions
+          
         public static string formatdate(string string1, string string2, JUSTContext context)
         {
             try
@@ -327,11 +328,6 @@ namespace JUST
             {
                 return null;
             }
-        }
-      
-        public static string currentdate(JUSTContext context)
-        {
-            return DateTime.Now.ToString();
         }
 
         #endregion

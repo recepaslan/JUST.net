@@ -56,7 +56,8 @@ namespace JUST
         public static JArray Transform(JArray transformerArray, JToken input, JUSTContext localContext = null)
         {
             var result = new JArray();
-            for (int i = 0; i < transformerArray.Count; i++) {
+            for (int i = 0; i < transformerArray.Count; i++)
+            {
                 var transformer = transformerArray[i];
                 if (transformer.Type != JTokenType.Object)
                 {
@@ -184,7 +185,7 @@ namespace JUST
                     }
 
                     if (property.Name != null && property.Value.ToString().Trim().StartsWith("#")
-                        && !property.Name.Contains("#eval")  && !property.Name.Contains("#ifgroup")
+                        && !property.Name.Contains("#eval") && !property.Name.Contains("#ifgroup")
                         && !property.Name.Contains("#loop"))
                     {
                         object newValue = ParseFunction(property.Value.ToString(), inputJson, parentArray, currentArrayToken, localContext);
@@ -228,7 +229,7 @@ namespace JUST
                         catch
                         {
                             if (IsStrictMode(localContext)) { throw; }
-                            result =  false;
+                            result = false;
                         }
 
                         if (result == true)
@@ -242,7 +243,7 @@ namespace JUST
 
                             if (tokenToForm == null)
                             {
-                                tokenToForm = new List<JToken>();                               
+                                tokenToForm = new List<JToken>();
                             }
 
                             foreach (JToken grandChildToken in childToken.Children())
@@ -341,7 +342,7 @@ namespace JUST
                     /*End looping */
                 }
 
-                if (childToken.Type == JTokenType.String && childToken.Value<string>().Trim().StartsWith("#") 
+                if (childToken.Type == JTokenType.String && childToken.Value<string>().Trim().StartsWith("#")
                     && parentArray != null && currentArrayToken != null)
                 {
                     object newValue = ParseFunction(childToken.Value<string>(), inputJson, parentArray, currentArrayToken, localContext);
@@ -538,7 +539,7 @@ namespace JUST
             }
             object str = ParseArgument(inputJson, null, null, argumentArr[1], localContext);
 
-            JToken newToken = GetToken(str, localContext); 
+            JToken newToken = GetToken(str, localContext);
             return new KeyValuePair<string, JToken>(key, newToken);
         }
 
@@ -596,8 +597,8 @@ namespace JUST
                     else if (new[] { "currentvalueatpath", "lastvalueatpath" }.Contains(functionName))
                         output = ReflectionHelper.caller(null, "JUST.Transformer", functionName, new object[] { array, currentArrayElement, parameters[0] }, true, localContext ?? GlobalContext);
                     else if (functionName == "currentproperty")
-                        output = ReflectionHelper.caller(null, "JUST.Transformer", functionName, 
-                            new object[] { array, currentArrayElement, localContext ?? GlobalContext }, 
+                        output = ReflectionHelper.caller(null, "JUST.Transformer", functionName,
+                            new object[] { array, currentArrayElement, localContext ?? GlobalContext },
                             false, localContext ?? GlobalContext);
                     else if (functionName == "customfunction")
                         output = CallCustomFunction(parameters, localContext);
