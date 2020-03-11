@@ -24,15 +24,7 @@ There's also an option to tell how #copy will behave:
 
 # JUST.NET Library
 
-Pull the latest JUST.NET from https://www.nuget.org
-``Install-Package JUST.NET``
-
-It's a .Net Standard library, so it can be used with .Net Framework and .Net Core.
-
-Older versions not updated anymore:
-- .Net Core version ``Install-Package JUST.NETCore``
-- .Net Framework version ``Install-Package JUST``
-
+Download and localy build library.
 
 # Write a simple C# code snippet to transform your JSON
 

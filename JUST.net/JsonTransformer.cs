@@ -68,7 +68,8 @@ namespace JUST
         public JArray Transform(JArray transformerArray, JToken input)
         {
             var result = new JArray();
-            for (int i = 0; i < transformerArray.Count; i++) {
+            for (int i = 0; i < transformerArray.Count; i++)
+            {
                 var transformer = transformerArray[i];
                 if (transformer.Type != JTokenType.Object)
                 {

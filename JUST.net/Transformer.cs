@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
+using System.Globalization;
 using System.Linq;
 
 namespace JUST
@@ -501,6 +502,41 @@ namespace JUST
         }
         #endregion
 
+        #region date functions
+        public static string formatdate(string string1, string string2, JUSTContext context)
+        {
+            try
+            {
+                var date = Convert.ToDateTime(string1);
+                return date.ToString(string2);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+      
+        public static string currentdate(JUSTContext context)
+        {
+            return DateTime.Now.ToString();
+        }
+
+        #endregion
+        #region date functions
+        public static string dateformat(string string1, string string2, JUSTContext context)
+        {
+            try
+            {
+                var date = Convert.ToDateTime(string1);
+                return date.ToString(string2);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        #endregion
         #region Constants
 
         public static string constant_comma(JUSTContext context)
