@@ -313,7 +313,21 @@ namespace JUST
             return GetValue(selectedToken);
         }
         #endregion
+        #region date functions
+        public static string dateformat(string string1, string string2, JUSTContext context)
+        {
+            try
+            {
+                var date = Convert.ToDateTime(string1);
+                return date.ToString(string2);
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
+        #endregion
         #region Constants
 
         public static string constant_comma(string none, JUSTContext context)
