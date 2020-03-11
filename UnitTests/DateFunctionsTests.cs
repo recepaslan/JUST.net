@@ -11,7 +11,7 @@ namespace JUST.UnitTests
         [Test]
         public void DateFormat()
         {
-            var transformer = "{ \"result\": { \"us-format\": \"#dateformat(#valueof($.lease.start),MM/dd/yyyy)\",\"eu-format\": \"#dateformat(#valueof($.lease.end),dd/MM/yyyy)\" }}";
+            var transformer = "{ \"result\": { \"us-format\": \"#formatdate(#valueof($.lease.start),MM/dd/yyyy)\",\"eu-format\": \"#formatdate(#valueof($.lease.end),dd/MM/yyyy)\" }}";
 
             var result = JsonTransformer.Transform(transformer, ExampleInputs.Date);
 

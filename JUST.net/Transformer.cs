@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Globalization;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 
@@ -313,8 +314,9 @@ namespace JUST
             return GetValue(selectedToken);
         }
         #endregion
+
         #region date functions
-        public static string dateformat(string string1, string string2, JUSTContext context)
+        public static string formatdate(string string1, string string2, JUSTContext context)
         {
             try
             {
@@ -326,8 +328,14 @@ namespace JUST
                 return null;
             }
         }
+      
+        public static string currentdate(JUSTContext context)
+        {
+            return DateTime.Now.ToString();
+        }
 
         #endregion
+
         #region Constants
 
         public static string constant_comma(string none, JUSTContext context)
